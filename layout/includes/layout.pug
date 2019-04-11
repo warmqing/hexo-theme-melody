@@ -13,6 +13,9 @@
 - var pageAuthor = config.email ? config.author + ',' + config.email : config.author
 - var pageCopyright = config.copyright || config.author
 
+- var contentInnerClass = ['layout']
+- if (is_post()) contentInnerClass.push('layout_post')
+
 doctype html
 html(lang=config.language)
   head
@@ -42,7 +45,7 @@ html(lang=config.language)
       include ./nav.pug
     #content-outer
       block top_img
-      #content-inner.layout
+      #content-inner(class=contentInnerClass)
         if body
           div!= body
         else
